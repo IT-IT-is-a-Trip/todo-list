@@ -1,7 +1,8 @@
-import { toDoListApp } from "./data";
-const App = toDoListApp
+import { TaskManager } from "./taskManager";
 
-App.tasks.addTask('ahah', 'lol task')
-App.tasks.getTask('ahah')
-App.tasks.addTask('task 2', 'hehheh 2')
-App.tasks.getTask('task 2')
+const taskStorage = []
+
+const newTaskManager = new TaskManager(taskStorage)
+
+newTaskManager.addNewTask('Create', 'remember', '05.06.2025', 'high')
+newTaskManager.getTasks()

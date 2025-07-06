@@ -1,21 +1,45 @@
-export class Tasks {
-    tasks = []
 
-    addTask(taskName, description = '') {
-        // if (this.tasks[taskName]) return
-        const task = {
-            taskName: taskName,
-            description: description
-        }
-        this.tasks.push(task)
+export class AddNewTask {
+    constructor(name, description, dueDate, priority) {
+        this.name = (new AddTaskName(name)).getName()
+        this.description = (new AddDescription(description)).getDescription()
+        this.dueDate = (new AddDueDate(dueDate)).getDueDate()
+        this.priority = (new AddPriority(priority)).getPriority()
     }
-    removeTask(taskName) {
-        if (!this.tasks[taskName]) return
-        this.tasks[taskName] = []
+}
+
+export class AddTaskName {
+    constructor(name) {
+        this.name = name
     }
-    getTask(taskName) {
-        this.tasks.forEach((task) => {
-            if (task.taskName == taskName) {console.log(task)}
-    })
+    getName() {
+        return this.name
+    }
+}
+
+export class AddDescription {
+    constructor(description) {
+        this.description = description
+    }
+    getDescription() {
+        return this.description
+    }
+}
+
+export class AddDueDate {
+    constructor(dueDate) {
+        this.dueDate = dueDate
+    }
+    getDueDate() {
+        return this.dueDate
+    }
+}
+
+export class AddPriority {
+    constructor(priority) {
+        this.priority = priority
+    }
+    getPriority() {
+        return this.priority
     }
 }
