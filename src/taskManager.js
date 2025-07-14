@@ -1,5 +1,4 @@
 import { NewTask } from "./addTask";
-import { deleteTask } from "./removeTask";
 
 
 export class TaskManager {
@@ -13,7 +12,8 @@ export class TaskManager {
         this.taskStorage.push(new NewTask(name, description, dueDate, priority))
     }
     removeTask(name) {
-        deleteTask(name, this.taskStorage)
+        const taskToDelete = this.taskStorage.findIndex(task => task.name === name)
+        this.taskStorage.splice(taskToDelete, 1)
     }
     renameTask(name, newName) {
         const taskIndex = this.taskStorage.findIndex(task => task.name === name);
